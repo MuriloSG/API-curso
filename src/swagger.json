@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "Title": "API Documentation ",
-    "description": "MyAPI Documentation with all specifications",
+    "description": "MyAPI Documentation",
     "version": "1.0.0",
     "contact": {
       "name": "Murilo Santos",
@@ -12,7 +12,7 @@
   "paths": {
     "/roles": {
       "post": {
-        "tags": ["Role"],
+        "tags": ["Roles"],
         "summary": "Create a role",
         "description": "Create a new role",
         "requestBody": {
@@ -30,21 +30,21 @@
           }
         },
         "responses": {
-          "201":{
+          "201": {
             "description": "Role created.",
             "content": {
-              "application/json":{
-                "schema":{
-                  "type": "object",
+              "application/json": {
+                "schema": {
+                  "type":"object",
                   "properties": {
                     "id": {
-                      "type": "string"
+                      "type":"string"
                     },
                     "name": {
-                      "type": "string"
+                      "type":"string"
                     },
                     "created_at": {
-                      "type": "string"
+                      "type":"string"
                     }
                   }
                 }
@@ -52,22 +52,25 @@
             }
           },
           "400": {
-            "description": "Role alredy exists."
+            "description": "Role already exists."
+          },
+          "401":{
+            "description": "Invalid authentication token."
           }
         }
       },
       "get": {
-        "tags": ["Role"],
-        "summary": "Lis all roles.",
+        "tags": ["Roles"],
+        "summary": "List all roles",
         "description": "Returns all roles paginated.",
-        "parameters":[
+        "parameters": [
           {
             "name": "page",
             "in": "query",
-            "descriptions": "Number of the page",
+            "description": "Number of the page",
             "required": false,
-            "schema": {
-              "type": "number",
+            "schema":{
+              "type":"number",
               "example": "page=1"
             },
             "style": "label"
@@ -75,10 +78,10 @@
           {
             "name": "limit",
             "in": "query",
-            "descriptions": "Number of registers per page",
+            "description": "Number of registers per page",
             "required": false,
-            "schema": {
-              "type": "number",
+            "schema":{
+              "type":"number",
               "example": "limit=15"
             },
             "style": "label"
@@ -86,32 +89,97 @@
         ],
         "responses": {
           "200": {
-            "description": "Sucess.",
-            "content": {
+            "description": "Success.",
+            "content":{
               "application/json":{
                 "example": {
                   "per_page": 15,
                   "total": 2,
                   "current_page": 1,
                   "data": [
-                      {
-                        "id": "e416be99-136a-4bfa-91fb-5de17fde1256",
-                        "name": "Users",
-                        "created_at": "2023-09-14T17:18:27.000Z"
-                      },
-                      {
-                        "id": "bf360821-bd96-4491-8a36-b7976bb87c43",
-                        "name": "Adm",
-                        "created_at": "2023-09-14T17:41:41.000Z"
-                      }
+                    {
+                      "id": "e416be99-136a-4bfa-91fb-5de17fde1256",
+                      "name": "Users",
+                      "created_at": "2023-09-14T17:18:27.000Z"
+                    },
+                    {
+                      "id": "bf360821-bd96-4491-8a36-b7976bb87c43",
+                      "name": "Adm",
+                      "created_at": "2023-09-14T17:41:41.000Z"
+                    }
                   ]
                 }
               }
             }
+          },
+          "401":{
+            "description": "Invalid authentication token."
+          }
+        }
+      }
+    },
+    "/roles/{id}": {
+      "put": {
+        "tags": ["Roles"],
+        "summary": "Update a role",
+        "description": "Update a role.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identify of a role",
+            "required": true,
+            "schema":{
+              "type":"string"
+            },
+            "style": "label"
+          }
+        ],
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "type":"object",
+                "properties": {
+                  "name":{
+                    "type":"string"
+                  }
+                },
+                "example": "Administrator"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "type":"object",
+                  "properties":{
+                    "id":{
+                      "type":"string"
+                    },
+                    "name":{
+                      "type":"string"
+                    },
+                    "created_at":{
+                      "type":"string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400":{
+            "description": "Bad request."
+          },
+          "404": {
+            "description": "Role not found."
           }
         }
       }
     }
   }
 }
-
