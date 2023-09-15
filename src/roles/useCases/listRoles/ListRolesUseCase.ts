@@ -1,15 +1,15 @@
 /* eslint-disable prettier/prettier */
-import {
-  RolesPaginateProperties,
-  RolesRepository,
-} from '@roles/repositories/RolesRepository'
+import { IRolesRepository, RolesPaginateProperties } from '@roles/repositories/IRolesRepository'
+import { injectable, inject } from 'tsyringe'
 
 type ListRolesUseCaseParams = {
   page: number
   limit: number
 }
+
+@injectable()
 export class ListRolesUseCase {
-  constructor(private rolesRepository: RolesRepository) { }
+  constructor(@inject('RolesRepository') private rolesRepository: IRolesRepository) { }
 
   async execute({
     limit,
