@@ -1,4 +1,11 @@
-import { Entity, PrimaryColumn, Column, CreateDateColumn } from 'typeorm'
+import { Role } from '@roles/entities/Role'
+import {
+  Entity,
+  PrimaryColumn,
+  Column,
+  CreateDateColumn,
+  ManyToOne,
+} from 'typeorm'
 import { v4 as uuidv4 } from 'uuid'
 
 @Entity('users')
@@ -20,6 +27,11 @@ export class User {
 
   @Column()
   avatar?: string
+
+  @ManyToOne(() => Role, {
+    cascade: true,
+  })
+  role: Role
 
   @CreateDateColumn()
   created_at: Date
