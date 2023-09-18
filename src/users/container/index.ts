@@ -7,4 +7,4 @@ container.registerSingleton<IUsersRepository>(
   'UsersRepository',
   UsersRepository,
 )
-container.registerSingleton('UsersRepository', CreateUserController)
+container.registerSingleton('CreateUserController', CreateUserController)

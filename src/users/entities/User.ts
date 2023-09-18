@@ -23,7 +23,7 @@ export class User {
   password: string
 
   @Column()
-  isAdmin: boolean
+  isAdim: boolean
 
   @Column()
   avatar?: string

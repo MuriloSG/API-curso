@@ -13,7 +13,7 @@ usersRouter.post(
       name: Joi.string().required(),
       email: Joi.string().email().required(),
       password: Joi.string().required(),
-      isAdmin: Joi.boolean().required(),
+      isAdim: Joi.boolean().required(),
       roleId: Joi.string().uuid().required(),
     },
   }),

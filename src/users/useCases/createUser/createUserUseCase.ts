@@ -10,7 +10,7 @@ export type CreateUserDTO = {
   name: string
   email: string
   password: string
-  isAdmin: boolean
+  isAdim: boolean
   roleId: string
 }
 
@@ -25,7 +25,7 @@ export class CreateUserUseCase {
     name,
     email,
     password,
-    isAdmin,
+    isAdim,
     roleId,
   }: CreateUserDTO): Promise<User> {
     const emailExists = await this.usersRepository.findByEmail(email)
@@ -41,7 +41,7 @@ export class CreateUserUseCase {
       name,
       email,
       password: hashedPassword,
-      isAdmin,
+      isAdim,
       role,
     })
     return user
