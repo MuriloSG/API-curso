@@ -5,7 +5,7 @@ export type CreateUserDTO = {
   name: string
   email: string
   password: string
-  isAdim: boolean
+  isAdmin: boolean
   role: Role
 }
 

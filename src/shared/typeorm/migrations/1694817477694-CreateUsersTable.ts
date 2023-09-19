@@ -30,7 +30,7 @@ export class CreateUsersTable1694817477694 implements MigrationInterface {
             isNullable: true,
           },
           {
-            name: 'isAdim',
+            name: 'isAdmin',
             type: 'boolean',
             default: false,
           },

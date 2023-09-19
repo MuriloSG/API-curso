@@ -19,7 +19,7 @@ usersRouter.post(
       name: Joi.string().required(),
       email: Joi.string().email().required(),
       password: Joi.string().required(),
-      isAdim: Joi.boolean().required(),
+      isAdmin: Joi.boolean().required(),
       roleId: Joi.string().uuid().required(),
     },
   }),
