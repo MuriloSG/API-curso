@@ -19,7 +19,7 @@ export class UpdateAvatarUseCase {
 
   async execute({ userId, avatarFileName }: UpdateAvatarDTO): Promise<User> {
     const user = await this.usersRepository.findById(userId)
-    if (!userId) {
+    if (!user) {
       throw new AppError('Only authenticated users can change avatar', 401)
     }
     if (user.avatar) {
@@ -28,8 +28,8 @@ export class UpdateAvatarUseCase {
       if (userAvatarFileExists) {
         await fs.promises.unlink(userAvatarFilePath)
       }
-      user.avatar = avatarFileName
-      return this.usersRepository.save(user)
     }
+    user.avatar = avatarFileName
+    return this.usersRepository.save(user)
   }
 }
