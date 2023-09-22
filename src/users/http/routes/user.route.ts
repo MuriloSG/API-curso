@@ -5,15 +5,17 @@ import multer from 'multer'
 import { CreateUserController } from '@user/useCases/createUser/CreateUserController'
 import { ListUsersController } from '@user/useCases/listUsers/ListUsersController'
 import { CreateLoginController } from '@user/useCases/createLogin/CreateLoginController'
+import { UpdateAvatarController } from '@user/useCases/updateAvatar/UpdateAvatarController'
+import { ShowProfileController } from '@user/useCases/showProfile/ShowProfileController'
 import { isAuthenticate } from '@shared/http/middlewares/isAuthenticate'
 import uploadConfig from '@config/upload'
-import { UpdateAvatarController } from '@user/useCases/updateAvatar/UpdateAvatarController'
 
 const usersRouter = Router()
 const createUserController = container.resolve(CreateUserController)
 const listUsersController = container.resolve(ListUsersController)
 const createLoginController = container.resolve(CreateLoginController)
 const updateAvatarController = container.resolve(UpdateAvatarController)
+const showProfileController = container.resolve(ShowProfileController)
 const upload = multer(uploadConfig)
 
 usersRouter.post(
@@ -68,4 +70,13 @@ usersRouter.patch(
     return updateAvatarController.handle(request, response)
   },
 )
+
+usersRouter.get(
+  '/profile',
+  isAuthenticate,
+  (request: Request, response: Response) => {
+    return showProfileController.handle(request, response)
+  },
+)
+
 export { usersRouter }
