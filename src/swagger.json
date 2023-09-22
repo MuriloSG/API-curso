@@ -266,6 +266,96 @@
           }
         }
       }
+    },
+    "users": {
+      "post": {
+        "tags":  ["Users"],
+        "summary": "Create a user",
+        "description": "Create a new user",
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "type":"object",
+                "properties": {
+                  "name":{
+                    "type": "string"
+                  },
+                  "email":{
+                    "type": "string"
+                  },
+                  "password":{
+                    "type": "string"
+                  },
+                  "isAdmin":{
+                    "type": "boolean"
+                  },
+                  "roleId":{
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201":{
+            "description":"User created.",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "type":"object",
+                  "properties":{
+                    "id":{
+                      "type":"string"
+                    },
+                    "name":{
+                      "type": "string"
+                    },
+                    "email":{
+                      "type": "string"
+                    },
+                    "password":{
+                      "type": "string"
+                    },
+                    "isAdmin":{
+                      "type": "boolean"
+                    },
+                    "roleId":{
+                      "type": "string"
+                    },
+                    "created_at":{
+                      "type": "string"
+                    }
+                  },
+                  "example":{
+                    "id": "fc1d2608-1be3-40c2-9786-5b39f844ac35",
+                    "name": "joao",
+                    "email": "joao@gmail.com",
+                    "isAdmin": false,
+                    "role": {
+                      "id": "f8dd830f-f75e-4040-a7ca-2cfb12343454",
+                      "name": "T.I.",
+                      "created_at": "2023-09-19T14:09:22.000Z"
+                    },
+                    "created_at": "2023-09-22T13:01:27.000Z",
+                    "avatar_url": null
+                  }
+                }
+              }
+            }
+          },
+          "400":{
+            "description": "Email address already used"
+          },
+          "401":{
+            "description":"Invalid authentication token."
+          },
+          "404":{
+            "description":"Role not found."
+          }
+        }
+      }
     }
   }
 }
