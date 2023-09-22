@@ -9,6 +9,7 @@ import { UpdateAvatarController } from '@user/useCases/updateAvatar/UpdateAvatar
 import { ShowProfileController } from '@user/useCases/showProfile/ShowProfileController'
 import { isAuthenticate } from '@shared/http/middlewares/isAuthenticate'
 import uploadConfig from '@config/upload'
+import { UpdateProfileController } from '@user/useCases/updateProfile/UpdateProfileController'
 
 const usersRouter = Router()
 const createUserController = container.resolve(CreateUserController)
@@ -16,6 +17,7 @@ const listUsersController = container.resolve(ListUsersController)
 const createLoginController = container.resolve(CreateLoginController)
 const updateAvatarController = container.resolve(UpdateAvatarController)
 const showProfileController = container.resolve(ShowProfileController)
+const updateProfileController = container.resolve(UpdateProfileController)
 const upload = multer(uploadConfig)
 
 usersRouter.post(
@@ -76,6 +78,28 @@ usersRouter.get(
   isAuthenticate,
   (request: Request, response: Response) => {
     return showProfileController.handle(request, response)
+  },
+)
+
+usersRouter.put(
+  '/profile',
+  isAuthenticate,
+  celebrate({
+    [Segments.BODY]: {
+      name: Joi.string().required(),
+      email: Joi.string().email().required(),
+      old_password: Joi.string(),
+      password: Joi.string().optional(),
+      password_confirmation: Joi.string()
+        .valid(Joi.ref('password'))
+        .when('password', {
+          is: Joi.exist(),
+          then: Joi.required(),
+        }),
+    },
+  }),
+  (request: Request, response: Response) => {
+    return updateProfileController.handle(request, response)
   },
 )
 

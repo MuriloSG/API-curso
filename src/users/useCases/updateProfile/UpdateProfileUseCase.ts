@@ -35,11 +35,11 @@ export class UpdateProfileUseCase {
       throw new AppError('There is already one user with this Email')
     }
     if(password && old_password){
-      const checkOldPassword = await compare(old_password, password)
+      const checkOldPassword = await compare(old_password, user.password)
       if(!checkOldPassword){
         throw new AppError('Old Password does not match')
       }
-      user.password = await hash(old_password, 10)
+      user.password = await hash(password, 10)
     }
     user.name = name
     user.email = email
