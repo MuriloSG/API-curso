@@ -1,11 +1,10 @@
 import { NextFunction, Request, Response } from 'express'
-import jwtConfig from '@config/auth'
-import { Secret, verify } from 'jsonwebtoken'
+import { decode } from 'jsonwebtoken'
 
 type JetPayloadProps = {
   sub: string
 }
-export const isAuthenticate = (
+export const addUserInfoToRequest = (
   request: Request,
   response: Response,
   next: NextFunction,
@@ -27,14 +26,14 @@ export const isAuthenticate = (
     })
   }
   try {
-    const decodedToken = verify(token, jwtConfig.jwt.secret as Secret)
+    const decodedToken = decode(token)
     const { sub } = decodedToken as JetPayloadProps
     request.user = { id: sub }
     next()
   } catch {
     return response.status(401).json({
       error: true,
-      code: 'token.expired',
+      code: 'token.invalid',
       message: 'Access token not present',
     })
   }
