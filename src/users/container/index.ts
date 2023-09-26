@@ -1,5 +1,7 @@
 import { ListRolesController } from '@roles/useCases/listRoles/ListRolesController'
+import { IRefreshTokenRepository } from '@user/repositories/IRefreshTokenRepository'
 import { IUsersRepository } from '@user/repositories/IUsersRepository'
+import { RefreshTokenRepository } from '@user/repositories/RefreshTokenRepository'
 import { UsersRepository } from '@user/repositories/UsersRepository'
 import { CreateLoginController } from '@user/useCases/createLogin/CreateLoginController'
 import { CreateUserController } from '@user/useCases/createUser/CreateUserController'
@@ -11,6 +13,10 @@ import { container } from 'tsyringe'
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',
   UsersRepository,
+)
+container.registerSingleton<IRefreshTokenRepository>(
+  'RefreshTokenRepository',
+  RefreshTokenRepository,
 )
 container.registerSingleton('CreateUserController', CreateUserController)
 container.registerSingleton('ListRolesController', ListRolesController)
