@@ -1,6 +1,6 @@
-import { RefreshToken } from '@user/entities/RefreshToken'
+import { RefreshToken } from '@user/entities/RefreshToken.1'
 
-type CreateRefreshTokenDTO = {
+export type CreateRefreshTokenDTO = {
   user_id: string
   token: string
   valid: boolean
