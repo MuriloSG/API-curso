@@ -23,7 +23,7 @@ export type UsersPaginateProperties = {
 }
 
 export interface IUsersRepository {
-  create({ name, email, password, isAdim, role }: CreateUserDTO): Promise<User>
+  create({ name, email, password, isAdmin, role }: CreateUserDTO): Promise<User>
   save(user: User): Promise<User>
   findAll({
     page,
