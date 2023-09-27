@@ -13,7 +13,7 @@ export type CreateULoginDTO = {
   password: string
 }
 
-type IResonse = {
+type IResponse = {
   user: User
   accessToken: string
   refreshToken: string
@@ -26,7 +26,7 @@ export class CreateLoginUseCase {
     @inject('RefreshTokenRepository') private refreshTokenRepository: IRefreshTokenRepository
   ) { }
 
-  async execute({ email, password }: CreateULoginDTO): Promise<IResonse> {
+  async execute({ email, password }: CreateULoginDTO): Promise<IResponse> {
     const user = await this.usersRepository.findByEmail(email)
     if (!user) {
       throw new AppError('Incorrect email/password combination', 401)

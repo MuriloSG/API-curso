@@ -16,7 +16,7 @@ export class RefreshToken {
   valid: boolean
 
   @Column()
-  expires: boolean
+  expires: Date
 
   @CreateDateColumn()
   created_at: Date
