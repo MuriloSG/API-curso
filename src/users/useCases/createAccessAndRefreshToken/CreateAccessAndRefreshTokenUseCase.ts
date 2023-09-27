@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { AppError } from '@shared/errors/AppError'
 import { User } from '@user/entities/User'
 import { IRefreshTokenRepository } from '@user/repositories/IRefreshTokenRepository'
