@@ -67,6 +67,35 @@
 
 **updateProfile**: Atualiza as informações do perfil do usuário.
 
+### Rotas para Users
+- **POST /users:**
+  - **Tipo:** POST
+  - **Responsabilidade:** Criar um novo usuário.
+
+- **GET /users:**
+  - **Tipo:** GET
+  - **Responsabilidade:** Listar usuários.
+
+- **POST /users/login:**
+  - **Tipo:** POST
+  - **Responsabilidade:** Autenticar um usuário.
+
+- **POST /users/refresh_token:**
+  - **Tipo:** POST
+  - **Responsabilidade:** Gerar novo token de acesso e atualização.
+
+- **PATCH /users/avatar:**
+  - **Tipo:** PATCH
+  - **Responsabilidade:** Atualizar a imagem do avatar do usuário.
+
+- **GET /users/profile:**
+  - **Tipo:** GET
+  - **Responsabilidade:** Obter informações do perfil do usuário.
+
+- **PUT /users/profile:**
+  - **Tipo:** PUT
+  - **Responsabilidade:** Atualizar informações do perfil do usuário.
+
 ## Entidade Roles
 | Atributo     | Tipo                  |
 |--------------|-----------------------|
