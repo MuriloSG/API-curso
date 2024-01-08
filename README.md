@@ -52,6 +52,21 @@
 | created_at   | Date                  |
 | avatar_url   | string                |
 
+### Casos de uso
+**createAccessAndRefreshToken**: Gera tokens de acesso e atualização para autenticação do usuário.
+
+**createLogin**: Autentica o usuário e retorna informações relevantes, incluindo tokens de acesso e atualização.
+
+**createUser**: Cria um novo usuário com base nas informações fornecidas.
+
+**listUsers**: Retorna uma lista de todos os usuários cadastrados.
+
+**showProfile**: Retorna as informações do perfil do usuário.
+
+**updateAvatar**: Atualiza a imagem do avatar do usuário.
+
+**updateProfile**: Atualiza as informações do perfil do usuário.
+
 ## Entidade Roles
 | Atributo     | Tipo                  |
 |--------------|-----------------------|
