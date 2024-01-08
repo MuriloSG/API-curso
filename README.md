@@ -76,7 +76,11 @@
 
 ### Casos de uso Roles
 **createRole**: Cria um novo papel(role) no sistema.
+
 **deleteRole**: Exclui um papel(role) existente no sistema.
+
 **listRoles**: Retorna uma lista de todos os papéis(role) cadastrados.
+
 **showRole**: Retorna informações detalhadas sobre um papel(role) específico.
+
 **updateRole**: Atualiza as informações de um papel(role) existente no sistema.
