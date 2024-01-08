@@ -39,10 +39,10 @@
 15. **"typeorm"**: "^0.3.17"
 16. **"uuid"**: "^9.0.0"
 
-## Tabela Users
+## Entidade Users
 |   Atributo   |       Tipo            |
 |--------------|-----------------------|
-| id           | string                |
+| id (uuid)    | string                |
 | name         | string                |
 | email        | string                |
 | password     | string                |
@@ -51,3 +51,10 @@
 | role         | Role                  |
 | created_at   | Date                  |
 | avatar_url   | string                |
+
+## Entidade Roles
+| Atributo     | Tipo                  |
+|--------------|-----------------------|
+| id (uuid)    | string                |
+| name         | string                |
+| created_at   | Date                  |
