@@ -114,5 +114,26 @@
 
 **updateRole**: Atualiza as informações de um papel(role) existente no sistema.
 
+### Rotas para Roles
+- **POST /roles:**
+  - **Tipo:** POST
+  - **Responsabilidade:** Criar um novo papel (role). Validação de dados utilizando o Joi.
+
+- **GET /roles:**
+  - **Tipo:** GET
+  - **Responsabilidade:** Listar papéis (roles). Validação de parâmetros de consulta.
+
+- **GET /roles/:id:**
+  - **Tipo:** GET
+  - **Responsabilidade:** Obter informações detalhadas sobre um papel específico. Validação de parâmetros de caminho.
+
+- **PUT /roles/:id:**
+  - **Tipo:** PUT
+  - **Responsabilidade:** Atualizar informações de um papel existente. Validação de parâmetros de caminho e dados utilizando o Joi.
+
+- **DELETE /roles/:id:**
+  - **Tipo:** DELETE
+  - **Responsabilidade:** Excluir um papel existente. Validação de parâmetros de caminho.
+
 ## Autenticação JWT dos Users na aplicação
 A autenticação JWT com refresh token é uma maneira segura e eficiente de gerenciar o login de usuários em sistemas web. Quando alguém faz login, é criado um token que contém informações sobre o usuário, como ID e papel, garantindo sua segurança. Além disso, um token de atualização é gerado, permitindo solicitar um novo token de acesso quando o original expira. Essa abordagem melhora a segurança, evitando a exposição de informações sensíveis e facilitando o gerenciamento de sessões. É fundamental seguir as práticas recomendadas para garantir a robustez e a segurança do sistema.
