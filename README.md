@@ -52,7 +52,7 @@
 | created_at   | Date                  |
 | avatar_url   | string                |
 
-### Casos de uso
+### Casos de uso Users
 **createAccessAndRefreshToken**: Gera tokens de acesso e atualização para autenticação do usuário.
 
 **createLogin**: Autentica o usuário e retorna informações relevantes, incluindo tokens de acesso e atualização.
@@ -73,3 +73,10 @@
 | id (uuid)    | string                |
 | name         | string                |
 | created_at   | Date                  |
+
+### Casos de uso Roles
+**createRole**: Cria um novo papel(role) no sistema.
+**deleteRole**: Exclui um papel(role) existente no sistema.
+**listRoles**: Retorna uma lista de todos os papéis(role) cadastrados.
+**showRole**: Retorna informações detalhadas sobre um papel(role) específico.
+**updateRole**: Atualiza as informações de um papel(role) existente no sistema.
