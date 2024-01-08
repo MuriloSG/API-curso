@@ -84,3 +84,6 @@
 **showRole**: Retorna informações detalhadas sobre um papel(role) específico.
 
 **updateRole**: Atualiza as informações de um papel(role) existente no sistema.
+
+## Autenticação JWT dos Users na aplicação
+A autenticação JWT com refresh token é uma maneira segura e eficiente de gerenciar o login de usuários em sistemas web. Quando alguém faz login, é criado um token que contém informações sobre o usuário, como ID e papel, garantindo sua segurança. Além disso, um token de atualização é gerado, permitindo solicitar um novo token de acesso quando o original expira. Essa abordagem melhora a segurança, evitando a exposição de informações sensíveis e facilitando o gerenciamento de sessões. É fundamental seguir as práticas recomendadas para garantir a robustez e a segurança do sistema.
