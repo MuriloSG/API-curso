@@ -38,3 +38,16 @@
 14. **"tsyringe"**: "^4.8.0"
 15. **"typeorm"**: "^0.3.17"
 16. **"uuid"**: "^9.0.0"
+
+## Tabela Users
+|   Atributo   |       Tipo            |
+|--------------|-----------------------|
+| id           | string                |
+| name         | string                |
+| email        | string                |
+| password     | string                |
+| isAdmin      | boolean               |
+| avatar       | string                |
+| role         | Role                  |
+| created_at   | Date                  |
+| avatar_url   | string                |
